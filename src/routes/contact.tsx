@@ -32,11 +32,16 @@ function Contact() {
     const next: Record<string, string> = {};
     if (!form.name.trim()) next.name = "Name is required";
     if (!/^\S+@\S+\.\S+$/.test(form.email)) next.email = "Valid email required";
-    if (form.phone.replace(/\D/g, "").length < 7) next.phone = "Valid phone required";
+    if (!/^\+?[\d\s-]{7,15}$/.test(form.phone)) next.phone = "Valid phone required";
     if (form.message.trim().length < 10) next.message = "Tell us a bit more (10+ chars)";
     setErrors(next);
-    // Silently drop bot submissions (honeypot filled)
-    if (honeypot) return;
+    // Silently drop bot submissions (honeypot filled), but simulate success to fool them
+    if (honeypot) {
+      setSent(true);
+      setForm({ name: "", email: "", phone: "", service: services[0], message: "" });
+      setTimeout(() => setSent(false), 5000);
+      return;
+    }
     if (Object.keys(next).length) return;
 
     const entry = { ...form, at: new Date().toISOString() };
@@ -81,7 +86,7 @@ function Contact() {
               </div>
             );
             return href ? (
-              <a key={label} href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} className="block">{content}</a>
+              <a key={label} href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} className="block">{content}</a>
             ) : <div key={label}>{content}</div>;
           })}
 
