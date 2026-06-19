@@ -47,7 +47,7 @@ export function Footer() {
           <h4 className="font-semibold mb-4">Get in Touch</h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li><a href={telLink} className="inline-flex items-center gap-2 hover:text-foreground"><FaPhone className="text-brand" /> {PHONE}</a></li>
-            <li><a href={whatsappLink()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-foreground"><FaWhatsapp className="text-whatsapp" /> Chat on WhatsApp</a></li>
+            <li><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-foreground"><FaWhatsapp className="text-whatsapp" /> Chat on WhatsApp</a></li>
             <li><a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 hover:text-foreground"><FaEnvelope className="text-brand" /> {EMAIL}</a></li>
             <li className="text-xs">{BUSINESS_HOURS}</li>
           </ul>

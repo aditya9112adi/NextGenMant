@@ -66,7 +66,7 @@ function Team() {
                 </div>
                 <div className="flex gap-2">
                   <a href={telLink} className="h-8 w-8 grid place-items-center rounded-lg gradient-bg text-white"><FaPhone className="text-xs" /></a>
-                  <a href={whatsappLink(`Hi, I'd like to talk to ${m.name}.`)} target="_blank" rel="noreferrer"
+                  <a href={whatsappLink(`Hi, I'd like to talk to ${m.name}.`)} target="_blank" rel="noopener noreferrer"
                     className="h-8 w-8 grid place-items-center rounded-lg bg-whatsapp text-white"><FaWhatsapp /></a>
                 </div>
               </div>

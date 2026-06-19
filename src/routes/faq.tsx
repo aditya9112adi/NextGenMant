@@ -61,8 +61,8 @@ function FAQ() {
                   >
                     <div className="px-5 pb-5 text-muted-foreground">
                       <p>{f.a}</p>
-                      <a href={whatsappLink(`Hi, I have a question: ${f.q}`)} target="_blank" rel="noreferrer"
-                        className="mt-4 inline-flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold bg-whatsapp text-white">
+                      <a href={whatsappLink(`Hi, I have a question: ${f.q}`)} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-whatsapp hover:underline">
                         <FaWhatsapp /> Chat on WhatsApp
                       </a>
                     </div>

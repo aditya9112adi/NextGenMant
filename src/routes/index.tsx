@@ -79,7 +79,7 @@ function Home() {
               and offline marketing solutions.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href={whatsappLink()} target="_blank" rel="noreferrer"
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl px-5 py-3 font-semibold text-white bg-whatsapp hover:opacity-90 transition">
                 <FaWhatsapp className="text-lg" /> Chat on WhatsApp
               </a>
@@ -119,7 +119,7 @@ function Home() {
                   <div className="text-3xl font-bold mt-1">+ 184%</div>
                   <div className="text-xs opacity-80 mt-1">Last 30 days · all clients</div>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-grid-cols-2 gap-3">
                   <div className="rounded-2xl bg-secondary p-4">
                     <FaRobot className="text-brand text-xl" />
                     <div className="font-semibold mt-2 text-sm">AI Bot Live</div>
@@ -179,7 +179,7 @@ function Home() {
               <h3 className="mt-5 text-lg font-semibold">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
               <div className="mt-5 flex flex-wrap gap-2">
-                <a href={whatsappLink(`Hi! I'm interested in ${title}.`)} target="_blank" rel="noreferrer"
+                <a href={whatsappLink(`Hi! I'm interested in ${title}.`)} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-semibold rounded-lg px-3 py-1.5 bg-whatsapp text-white">
                   <FaWhatsapp /> WhatsApp
                 </a>

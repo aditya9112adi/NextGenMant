@@ -21,6 +21,8 @@ function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", service: services[0], message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
+  // Honeypot: invisible to humans, bots fill it — silently drop on submit
+  const [honeypot, setHoneypot] = useState("");
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -30,9 +32,11 @@ function Contact() {
     const next: Record<string, string> = {};
     if (!form.name.trim()) next.name = "Name is required";
     if (!/^\S+@\S+\.\S+$/.test(form.email)) next.email = "Valid email required";
-    if (!/^[\d+\-\s()]{7,}$/.test(form.phone)) next.phone = "Valid phone required";
+    if (form.phone.replace(/\D/g, "").length < 7) next.phone = "Valid phone required";
     if (form.message.trim().length < 10) next.message = "Tell us a bit more (10+ chars)";
     setErrors(next);
+    // Silently drop bot submissions (honeypot filled)
+    if (honeypot) return;
     if (Object.keys(next).length) return;
 
     const entry = { ...form, at: new Date().toISOString() };
@@ -85,7 +89,7 @@ function Contact() {
             <h4 className="font-semibold text-lg">Prefer to talk now?</h4>
             <p className="text-sm text-white/85 mt-1">We usually reply on WhatsApp within 5 minutes.</p>
             <div className="mt-4 flex flex-wrap gap-2">
-              <a href={whatsappLink()} target="_blank" rel="noreferrer"
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-white text-black px-4 py-2.5 text-sm font-semibold">
                 <FaWhatsapp className="text-whatsapp" /> WhatsApp
               </a>
@@ -111,6 +115,17 @@ function Contact() {
             </p>
           </div>
 
+          {/* Honeypot field — hidden from humans, bots fill it */}
+          <input
+            type="text"
+            name="_hp"
+            value={honeypot}
+            onChange={e => setHoneypot(e.target.value)}
+            style={{ display: "none" }}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+          />
           <h3 className="text-2xl font-bold">Send us a message</h3>
           <p className="text-sm text-muted-foreground">Fill the form and we'll get back within one business day.</p>
 

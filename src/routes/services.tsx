@@ -105,7 +105,7 @@ function Services() {
                   <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold gradient-bg text-white">
                     Contact Us
                   </Link>
-                  <a href={whatsappLink(`Hi! I'd like to know more about ${title}.`)} target="_blank" rel="noreferrer"
+                  <a href={whatsappLink(`Hi! I'd like to know more about ${title}.`)} target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold bg-whatsapp text-white">
                     <FaWhatsapp /> WhatsApp
                   </a>

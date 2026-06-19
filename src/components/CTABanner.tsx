@@ -22,7 +22,7 @@ export function CTABanner({
             <p className="mt-3 text-white/85 max-w-xl">{subtitle}</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <a href={whatsappLink()} target="_blank" rel="noreferrer"
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl px-5 py-3 font-semibold bg-white text-black hover:scale-[1.02] transition-transform">
               <FaWhatsapp className="text-whatsapp text-lg" /> Message on WhatsApp
             </a>

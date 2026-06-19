@@ -35,7 +35,13 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
-  console.error(error);
+  // Log a generic message client-side to avoid leaking stack traces in browser DevTools.
+  // The full error is captured by reportLovableError for server-side analysis.
+  if (typeof window === "undefined") {
+    console.error("[SSR Error]", error);
+  } else {
+    console.error("[Client Error]: An unexpected error occurred. See error reporting for details.");
+  }
   const router = useRouter();
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });

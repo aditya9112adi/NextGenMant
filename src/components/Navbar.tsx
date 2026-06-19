@@ -132,7 +132,7 @@ export function Navbar() {
                   <a href={telLink} className="inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold border border-border">
                     <FaPhone /> Call
                   </a>
-                  <a href={whatsappLink()} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-white bg-whatsapp">
+                  <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-white bg-whatsapp">
                     <FaWhatsapp /> WhatsApp
                   </a>
                 </li>
