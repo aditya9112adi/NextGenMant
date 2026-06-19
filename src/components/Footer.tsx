@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { FaWhatsapp, FaPhone, FaEnvelope, FaLinkedin, FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
+import { FaWhatsapp, FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
 import { PHONE, EMAIL, BUSINESS_HOURS, whatsappLink, telLink } from "@/lib/contact";
 
 export function Footer() {

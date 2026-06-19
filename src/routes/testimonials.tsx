@@ -56,11 +56,13 @@ function Testimonials() {
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}>
               <div className="flex gap-1 text-yellow-400 mb-4">
-                {Array.from({ length: r.rating }).map((_, j) => <FaStar key={j} />)}
+                {Array.from({ length: Math.round(r.rating) }).map((_, j) => <FaStar key={j} />)}
               </div>
               <p className="text-xl md:text-2xl leading-relaxed font-medium">"{r.text}"</p>
-              <div className="mt-6 flex items-center gap-4 hidden">
-                <img src={r.inti} alt={r.name} className="h-12 w-12 rounded-full object-cover" loading="lazy" />
+              <div className="mt-6 flex items-center gap-4">
+                <span className="h-12 w-12 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-sm shrink-0">
+                  {r.inti}
+                </span>
                 <div>
                   <div className="font-semibold">{r.name}</div>
                   <div className="text-sm text-muted-foreground">{r.company}</div>

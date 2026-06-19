@@ -34,9 +34,7 @@ function Contact() {
     if (form.message.trim().length < 10) next.message = "Tell us a bit more (10+ chars)";
     setErrors(next);
     if (Object.keys(next).length) return;
-    
-//backend needed after few days it will be completed
-    /*
+
     const entry = { ...form, at: new Date().toISOString() };
     try {
       const prev = JSON.parse(localStorage.getItem("ngm_leads") || "[]");
@@ -44,9 +42,7 @@ function Contact() {
     } catch {}
     setSent(true);
     setForm({ name: "", email: "", phone: "", service: services[0], message: "" });
-    setTimeout(() => setSent(false), 5000);*/
-
-
+    setTimeout(() => setSent(false), 5000);
   };
   
 
@@ -105,20 +101,17 @@ function Contact() {
           initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="glass rounded-3xl p-6 md:p-8 space-y-4"
         >
-
-        <img src="/contactpage.jpeg" alt ="Contact Us" className="w-full h-auto rounded-2xl object-cover"/>
-        <div className="flex flex-col items-center text-center mt-10 mb-8 space-y-4 px-6">
-            <h3 className="text-2xl md:text-3xl font-bold text-white tracking-wide">
-                    Let's Build the Future
+          <img src="/contactpage.jpeg" alt="Contact Us" className="w-full h-auto rounded-2xl object-cover" />
+          <div className="flex flex-col items-center text-center mt-6 mb-4 space-y-3 px-4">
+            <h3 className="text-2xl md:text-3xl font-bold tracking-wide">
+              Let's Build the Future
             </h3>
-    
-            <p className="text-base md:text-lg text-gray-400 max-w-md leading-relaxed italic">
-                   "Innovation starts with a conversation. We're ready when you are."
-             </p>
-         </div>
-      <div className="hidden">
-        //*
-        <h3 className="text-2xl font-bold">Send us a message</h3>
+            <p className="text-base text-muted-foreground max-w-md leading-relaxed italic">
+              "Innovation starts with a conversation. We're ready when you are."
+            </p>
+          </div>
+
+          <h3 className="text-2xl font-bold">Send us a message</h3>
           <p className="text-sm text-muted-foreground">Fill the form and we'll get back within one business day.</p>
 
           <div className="grid sm:grid-cols-2 gap-4">
@@ -153,10 +146,6 @@ function Contact() {
           <button type="submit" className="w-full rounded-xl gradient-bg text-white font-semibold py-3.5 hover:opacity-95 transition">
             Send Message
           </button>
-          /////////////////////////////////////////////
-      </div>
-
-
 
           <AnimatePresence>
             {sent && (

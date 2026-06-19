@@ -16,7 +16,7 @@ export const Route = createFileRoute("/team")({
 });
 
 const team = [
-  { name: "Harini S", exp: "", role: "Digital Marketing Specialisti", bio: "Creates high-performing marketing campaigns that generate leads and growth.", img: "/harini.jpeg" },
+  { name: "Harini S", exp: "", role: "Digital Marketing Specialist", bio: "Creates high-performing marketing campaigns that generate leads and growth.", img: "/harini.jpeg" },
   { name: "Nagarjun BG", exp: "", role: "AI Automation & Web Solutions developer", bio: "Combining AI innovation with modern web development to create intelligent, efficient, and growth-focused digital solutions for businesses.", img: "/Nagarjun.jpeg" },
   { name: "Sachin vishwakarma LG", exp: "", role: "Marketing Executive", bio: "Supports and executes successful offline marketing initiatives.", img: "/sachin.jpg" },
   { name: "BS Gangadhar Achar", exp: "", role: "Head of Offline Marketing", bio: "Veteran in branding, networking, and offline promotional campaigns.", img: "/BS.jpeg" },
@@ -47,9 +47,11 @@ function Team() {
                 <img src={m.img} alt={m.name} loading="lazy"
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <span className="absolute top-3 right-3 text-[10px] font-semibold uppercase tracking-wider rounded-full px-2 py-1 bg-white/90 text-foreground">
-                  {m.exp}
-                </span>
+                {m.exp && (
+                  <span className="absolute top-3 right-3 text-[10px] font-semibold uppercase tracking-wider rounded-full px-2 py-1 bg-white/90 text-foreground">
+                    {m.exp}
+                  </span>
+                )}
               </div>
               <div className="mt-4">
                 <h3 className="font-semibold text-lg">{m.name}</h3>
